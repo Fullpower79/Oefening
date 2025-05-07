@@ -1,0 +1,17 @@
+
+name: build
+on: push
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repostory
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '18.x'
+      - name: Install dependecies
+        run: npm install
+      - name: Build static website
+        run: npm run test
